@@ -1,3 +1,4 @@
+//go:build ignore
 #include "vmlinux.h"
 #include "bpf/bpf_helpers.h"
 #include "bpf/bpf_core_read.h"
@@ -9,7 +10,7 @@ struct data_event {
   __u32 pid;
   __u32 len;
   char payload[MAX_PAYLOAD];
-};
+} __attribute__((packed));;
 
 
 struct {
